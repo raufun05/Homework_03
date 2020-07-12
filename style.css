@@ -32,7 +32,7 @@ header {
 
 .card {
   background-color: hsl(266, 54%, 60%);
-  border-radius: 10px;
+  border-radius: 50px;
   border-width: 1px;
   box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px 0px;
   color: hsl(206, 19%, 93%);
@@ -87,6 +87,9 @@ header {
   text-align: center;
   cursor: pointer;
 }
+.btn:hover{
+  background-color: aqua;
+}
 
 button[disabled] {
   cursor: default;
@@ -113,7 +116,7 @@ button[disabled] {
   margin-top: 10px;
   margin-bottom: 10px;
   border: 2px dashed #c0c7cf;
-  border-radius: 6px;
+  border-radius: 50px;
   resize: none;
   overflow: hidden;
 }
