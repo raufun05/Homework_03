@@ -1,34 +1,26 @@
-// Start working code
-// User input variables: 
+// Assignment Code
 var enter;
 var confirmNumber;
 var confirmCharacter;
 var confirmUppercase;
 var confirmLowercase;
-// Start Password variable values: 
-// Special characters 
-character = ["!", "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".", "/", "\:", "\;", " < ", "=", " > ", " ? ", "@", "[", "\\", "]", " ^ ", "_", "`", "{", "|", "}", "~"];
-// Numeric characters
-number = [1, 2, 3, 4, 5, 6, 7, 8, 9];
-// Alphabetical characters
-alpha = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
-// Space is for the Uppercase conversion
-space = [];
-// Choices declared outside the if statement so they can be concatenated upon condition
-var choices;
-// converts letters to uppercase 
-var toUpper = function (x) {
-    return x.toUpperCase();
-};
-// creates a variable for uppercase conversion
-alpha2 = alpha.map(toUpper);
 
+var upperCaseArr = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
+var lowerCaseArr = "abcdefghijklmnopqrstuvwxyz".split("");
+var numberArr = "0123456789".split("");
+var specialCharArr = "!#$%&\()*+,-./:;<=>?@^[\\]^_`{|}~".split("");
+
+//space = [];
+// Write password to the #password input
+var choices;
 var get = document.querySelector("#generate");
 
 get.addEventListener("click", function () {
     ps = generatePassword();
     document.getElementById("#password").placeholder = ps;
 });
+// Welcome pup up box for the user to start
+    window.onload = alert("Welcome! Please click 'Generate password' button to start!");
 
 // Start function to generate password
 function generatePassword() {
@@ -59,7 +51,7 @@ function generatePassword() {
     // Else if for 4 positive options
     else if (confirmCharacter && confirmNumber && confirmUppercase && confirmLowercase) {
 
-        choices = character.concat(number, alpha, alpha2);
+        choices =specialCharArr.concat(numberArr, upperCaseArr, lowerCaseArr);
     }
     // Else if for 3 positive options
     else if (confirmCharacter && confirmNumber && confirmUppercase) {
@@ -129,16 +121,3 @@ function UserInput(ps) {
     document.getElementById("password").textContent = ps;
 
 }
-
-// var copy = document.querySelector("#copy");
-// copy.addEventListener("click", function () {
-//     copyPassword();
-// });
-// // This copies the password value - works
-// // Code example demonstrated in a youtube video: 
-// // Source: https://youtu.be/9sT03jEwcaw
-// function copyPassword() {
-//     document.getElementById("#password").select();
-//     document.execCommand("Copy");
-//     alert("Password copied to clipboard!");
-// }
