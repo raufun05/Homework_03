@@ -1,14 +1,16 @@
 // // Assignment Code
-var enterChar;
-var numericChar;
-var specialChar;
-var upperCaseChar;
-var lowerCaseChar;
+var passContChar;
 
-character = ["!", "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".", "/", "\:", "\;", " < ", "=", " > ", " ? ", "@", "[", "\\", "]", " ^ ", "_", "`", "{", "|", "}", "~"];
-lower = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
-upper = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
-number = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+var specialChar;
+var numericChar;
+var lowerCaseChar;
+var upperCaseChar;
+
+var specialCharArr = "!#$%&\()*+,-./:;<=>?@^[\\]^_`{|}~".split("");
+var numberArr = "0123456789".split("");
+var lowerCaseArr = "abcdefghijklmnopqrstuvwxyz".split("");
+var upperCaseArr = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
+
 // // Write password to the #password input
 // function writePassword() {
 //   var password = generatePassword();
@@ -20,45 +22,48 @@ number = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
 // Add event listener to generate button
 //generateBtn.addEventListener("click", writePassword);
-var option;
+var holdPassChars;
 var generateBtn = document.querySelector("#generate");
-generateBtn.addEventListener('click', function(){
-  var password = generatePassword();
-  document.querySelector("#password").placeholder=password;
-})
+    generateBtn.addEventListener('click', function(){
+    ps = generatePassword();
+    document.getElementById("#password").placeholder=ps;
+});
+// Welcome pup up box for the user to start
+    window.onload = alert("Welcome! Please click 'Generate password' button to start!");
 // Start function to generate password
 
 function generatePassword(){
-  enterChar= parseInt(prompt("How many characters would you like your password to contain? Choose between 8 and 128"));
-  if(!enterChar){
+  passContChar= parseInt(prompt("Please enter a password between 8 and 128 characters"));
+  if(!passContChar){
     alert("Enter a value please");
-  }else if(enterChar<8 || enterChar>128){
-    enterChar= parseInt(prompt("Please enter a value between 8 and 128"));
+  }else if(passContChar<8 || passContChar>128){
+    passContChar= parseInt(prompt("Please enter a value between 8 and 128"));
   }else{
-    var special=confirm("Click OK to confirm including special characters");
-    var numeric=confirm("Click OK to confirm including numeric characters");
-    var upper=confirm("Click OK to confirm including upper case characters");
-    var lower=confirm("Click OK to confirm including lower case characters");
-  }
+    var specialChar=confirm("Click OK to confirm including special characters");
+    var numericChar=confirm("Click OK to confirm including numeric characters");
+    var upperCaseChar=confirm("Click OK to confirm including upper case characters");
+    var lowerCaseChar=confirm("Click OK to confirm including lower case characters");
+  };
   
   if(!numericChar && !specialChar && !upperCaseChar && !lowerCaseChar){
-        option= alert("Please follow the password rules!!")    
+    holdPassChars= alert("Please follow the password rules!!");    
   }
   else if(numericChar && specialChar && upperCaseChar && lowerCaseChar){
-    option=character.concat(number, lower, upper);
+    holdPassChars=specialCharArr.concat(numberArr, lowerCaseArr, upperCaseArr);
+    console.log(holdPassChars);
   }
-  var pwd = [];
+  var password = [];
 
-    for (var i = 0; i < enterChar; i++) {
-        var pickOption = option[Math.floor(Math.random() * option.length)];
-        pwd.push(pickOption);
+    for (var i = 0; i < passContChar; i++) {
+        var pickOption = holdPassChars[Math.floor(Math.random() * holdPassChars.length)];
+        password.push(pickOption);
     }
-    var password = pwd.join("");
-    UserInput(password);
-    return password;
+    var ps = password.join("");
+    UserInput(ps);
+    return ps;
 }
     
-  function UserInput(password) {
-    document.querySelector("pwd").textContent = password;
+function UserInput(ps) {
+    document.querySelector("password").textContent = ps;
 
 }
