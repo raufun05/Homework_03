@@ -52,52 +52,53 @@ function generatePassword() {
     else if (confirmCharacter && confirmNumber && confirmUppercase && confirmLowercase) {
 
         choices =specialCharArr.concat(numberArr, upperCaseArr, lowerCaseArr);
+        //console.log(choices);
     }
     // Else if for 3 positive options
     else if (confirmCharacter && confirmNumber && confirmUppercase) {
-        choices = character.concat(number, alpha2);
+        choices =specialCharArr.concat(numberArr, upperCaseArr);
+        console.log(choices)
     }
     else if (confirmCharacter && confirmNumber && confirmLowercase) {
-        choices = character.concat(number, alpha);
+        choices =specialCharArr.concat(numberArr, lowerCaseArr);
     }
     else if (confirmCharacter && confirmLowercase && confirmUppercase) {
-        choices = character.concat(alpha, alpha2);
+        choices =specialCharArr.concat(lowerCaseArr, upperCaseArr);
     }
     else if (confirmNumber && confirmLowercase && confirmUppercase) {
-        choices = number.concat(alpha, alpha2);
+        choices =numberArr.concat(lowerCaseArr, upperCaseArr);
     }
     // Else if for 2 positive options 
     else if (confirmCharacter && confirmNumber) {
-        choices = character.concat(number);
+        choices =specialCharArr.concat(numberArr);
 
     } else if (confirmCharacter && confirmLowercase) {
-        choices = character.concat(alpha);
+        choices =specialCharArr.concat(lowerCaseArr);
 
     } else if (confirmCharacter && confirmUppercase) {
-        choices = character.concat(alpha2);
+        choices =specialCharArr.concat(upperCaseArr);
     }
     else if (confirmLowercase && confirmNumber) {
-        choices = alpha.concat(number);
+        choices =lowerCaseArr.concat(numberArr);
 
     } else if (confirmLowercase && confirmUppercase) {
-        choices = alpha.concat(alpha2);
+        choices =lowerCaseArr.concat(upperCaseArr);
 
     } else if (confirmNumber && confirmUppercase) {
-        choices = number.concat(alpha2);
+        choices =numberArr.concat(upperCaseArr);
     }
     // Else if for 1 positive option
     else if (confirmCharacter) {
-        choices = character;
+        choices = specialCharArr;
     }
     else if (confirmNumber) {
-        choices = number;
+        choices = numberArr;
     }
     else if (confirmLowercase) {
-        choices = alpha;
+        choices = lowerCaseArr;
     }
-    // Created space variable to fill uppercase conversion
     else if (confirmUppercase) {
-        choices = space.concat(alpha2);
+        choices = upperCaseArr;
     };
 
     // password variable is an array placeholder for user generated amount of length
