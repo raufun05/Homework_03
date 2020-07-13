@@ -5,115 +5,112 @@ var specialChar;
 var numericChar;
 var lowerCaseChar;
 var upperCaseChar;
-
+// Declare an arrays for different characters
 var upperCaseArr = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
 var lowerCaseArr = "abcdefghijklmnopqrstuvwxyz".split("");
 var numberArr = "0123456789".split("");
 var specialCharArr = "!#$%&\()*+,-./:;<=>?@^[\\]^_`{|}~".split("");
 
 var holdPassChars;
-// Write password to the #password input
+// Identify element
 var generateBtn = document.querySelector("#generate");
 
 generateBtn.addEventListener('click', function(){
         var password = generatePassword();
-        document.getElementById("#password").placeholder=password;
-});
+        document.querySelector("#password");
+    });
 // Welcome pup up box for the user to start
-        window.onload = alert("Welcome! Please click 'Generate password' button to start!");
+        window.onload = alert("Welcome! Please click 'Generate Password' button to start!");
 
 // Start function to generate password
 function generatePassword() {
 // User input box
-        passContChar = parseInt(prompt("Please enter a password between 8 and 128 characters"));
+        passContChar = parseInt(prompt("Please enter a password values between 8 and 128 characters"));
 //Start user validation 
     if (!passContChar) {
-        alert("Enter a value please!!");
+        alert("Enter a valid credential please!!");
     } else if (passContChar < 8 || passContChar > 128) {
-        passContChar = parseInt(prompt("Please enter a value between 8 and 128"));
+        passContChar = parseInt(prompt("Please enter a values between 8 and 128"));
     } else {
-// Password character criteria
+// Password selection criteria
         var specialChar=confirm("Click OK to confirm including special characters");
         var numericChar=confirm("Click OK to confirm including numeric characters");
         var upperCaseChar=confirm("Click OK to confirm including upper case characters");
         var lowerCaseChar=confirm("Click OK to confirm including lower case characters");
     }
 
-// If user select all negative answer
+// When user select all negative answers
     if (!specialChar && !numericChar && !upperCaseChar && !lowerCaseChar) {
         holdPassChars = alert("Please follow the password rules!!");
     }
-    // First if statement that uses user input prompts to determine choices
-    // Else if for 4 positive options
+//When user select all positive answers
     else if (specialChar && numericChar && upperCaseChar && lowerCaseChar) {
-
         holdPassChars = specialCharArr.concat(numberArr, upperCaseArr, lowerCaseArr);
+        console.log(holdPassChars)
     }
-    // Else if for 3 positive options
-    // else if (confirmCharacter && confirmNumber && confirmUppercase) {
-    //     choices =specialCharArr.concat(numberArr, upperCaseArr);
-    //     console.log(choices)
-    // }
-    // else if (confirmCharacter && confirmNumber && confirmLowercase) {
-    //     choices =specialCharArr.concat(numberArr, lowerCaseArr);
-    // }
-    // else if (confirmCharacter && confirmLowercase && confirmUppercase) {
-    //     choices =specialCharArr.concat(lowerCaseArr, upperCaseArr);
-    // }
-    // else if (confirmNumber && confirmLowercase && confirmUppercase) {
-    //     choices =numberArr.concat(lowerCaseArr, upperCaseArr);
-    // }
-    // // Else if for 2 positive options 
-    // else if (confirmCharacter && confirmNumber) {
-    //     choices =specialCharArr.concat(numberArr);
+//When user select three positive answers
+    else if (specialChar && numericChar && upperCaseChar) {
+        holdPassChars =specialCharArr.concat(numberArr, upperCaseArr);
+        console.log(holdPassChars)
+    }
+    else if (specialChar && numericChar && lowerCaseChar) {
+        holdPassChars =specialCharArr.concat(numberArr, lowerCaseArr);
+    }
+    else if (specialChar && lowerCaseChar && upperCaseChar) {
+        holdPassChars =specialCharArr.concat(lowerCaseArr, upperCaseArr);
+    }
+    else if (numericChar && lowerCaseChar && upperCaseChar) {
+        holdPassChars =numberArr.concat(lowerCaseArr, upperCaseArr);
+    }
+//When user select two positive answers 
+    else if (specialChar && numericChar) {
+        holdPassChars =specialCharArr.concat(numberArr);
 
-    // } else if (confirmCharacter && confirmLowercase) {
-    //     choices =specialCharArr.concat(lowerCaseArr);
+    } else if (specialChar && lowerCaseChar) {
+        holdPassChars =specialCharArr.concat(lowerCaseArr);
 
-    // } else if (confirmCharacter && confirmUppercase) {
-    //     choices =specialCharArr.concat(upperCaseArr);
-    // }
-    // else if (confirmLowercase && confirmNumber) {
-    //     choices =lowerCaseArr.concat(numberArr);
+    } else if (specialChar && upperCaseChar) {
+        holdPassChars =specialCharArr.concat(upperCaseArr);
+    }
+    else if (lowerCaseChar && numericChar) {
+        holdPassChars =lowerCaseArr.concat(numberArr);
 
-    // } else if (confirmLowercase && confirmUppercase) {
-    //     choices =lowerCaseArr.concat(upperCaseArr);
+    } else if (lowerCaseChar && upperCaseChar) {
+        holdPassChars =lowerCaseArr.concat(upperCaseArr);
 
-    // } else if (confirmNumber && confirmUppercase) {
-    //     choices =numberArr.concat(upperCaseArr);
-    // }
-    // // Else if for 1 positive option
-    // else if (confirmCharacter) {
-    //     choices = specialCharArr;
-    // }
-    // else if (confirmNumber) {
-    //     choices = numberArr;
-    // }
-    // else if (confirmLowercase) {
-    //     choices = lowerCaseArr;
-    // }
-    // else if (confirmUppercase) {
-    //     choices = upperCaseArr;
-    // };
+    } else if (numericChar && upperCaseChar) {
+        holdPassChars =numberArr.concat(upperCaseArr);
+    }
+//When user select one positive answer
+    else if (specialChar) {
+        holdPassChars = specialCharArr;
+    }
+    else if (numericChar) {
+        holdPassChars = numberArr;
+    }
+    else if (lowerCaseChar) {
+        holdPassChars = lowerCaseArr;
+    }
+    else if (upperCaseChar) {
+        holdPassChars = upperCaseArr;
+    };
 
-    // password variable is an array placeholder for user generated amount of length
+// Declare  array for password 
     var pwd = [];
-
-    // Start random selection variables:
-    // Random selection for all variables: 
+    console.log(pwd)
+    
+// Iterate all characters 
     for (var i = 0; i < passContChar; i++) {
         var pickChoices = holdPassChars[Math.floor(Math.random() * holdPassChars.length)];
         pwd.push(pickChoices);
     }
-    // This joins the password array and converts it to a string
-    // Worked with a tutor to incorporate this option
+// Password array and converts it to a string
     var password = pwd.join("");
-    UserInput(password);
+    userInput(password);
     return password;
 }
-// This puts the password value into the textbox
-// Changed function input to use textcontent
-function UserInput(password) {
+//Use textcontent to change function
+function userInput(password) {
     document.getElementById("password").textContent = password;
 
 }
