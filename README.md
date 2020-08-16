@@ -39,7 +39,7 @@ The following image demonstrates the application functionality:
 The following image demonstrates the deployed application functionality:
 
 ![password generator picture](./Assets/passwordGenerator.png)
-![password generator deployed demo](./Assets/passwordGenerator.png)
+![password generator deployed demo](./Assets/passwordGenerator1.png)
 ## Review
 
 You are required to submit the following for review:
