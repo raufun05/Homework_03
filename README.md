@@ -1,4 +1,4 @@
-# 03 JavaScript: Password Generator
+# 03 JavaScript: Title: Password Generator
 
 Create an application that generates a random password based on user-selected criteria. This app will run in the browser and feature dynamically updated HTML and CSS powered by your JavaScript code. It will also feature a clean and polished user interface and be responsive, ensuring that it adapts to multiple screen sizes.
 
@@ -36,13 +36,22 @@ The following image demonstrates the application functionality:
 
 ![password generator demo](./Assets/03-javascript-homework-demo.png)
 
+The following image demonstrates the deployed application functionality:
+
+![password generator picture](./Assets/passwordGenerator.png)
+![password generator deployed demo](./Assets/passwordGenerator.png)
 ## Review
 
 You are required to submit the following for review:
 
 * The URL of the deployed application.
 
+https://raufun05.github.io/password_generator/
+
+
 * The URL of the GitHub repository. Give the repository a unique name and include a README describing the project.
+
+https://github.com/raufun05/password_generator
 
 - - -
 © 2019 Trilogy Education Services, a 2U, Inc. brand. All Rights Reserved.
